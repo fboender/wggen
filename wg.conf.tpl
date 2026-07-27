@@ -18,6 +18,7 @@ PrivateKey = {{ device_config["priv_key"] }}
             if peer_name == device_name:
                 continue
 
+            print(f"# {peer_name}")
             print(f"[Peer]")
             print(f"PublicKey = {peer_info["pub_key"]}")
             print(f"AllowedIPs = {peer_info["ip"]}/32")
