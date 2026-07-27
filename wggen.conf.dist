@@ -1,0 +1,23 @@
+{
+    "interface": "wg0",
+    "keepalive": False,
+    "server": {
+        "device_name": "elmo.em",
+        "domain_name": "vpn.electricmonk.nl",
+        "network": "192.168.4.0",
+    },
+    "devices": {
+        "elmo.em": {
+            "ip": "192.168.4.1",
+            "priv_key": "",
+        },
+        "sharky.em": {
+            "ip": "192.168.4.2",
+            "priv_key": "",
+        },
+        "pixel5": {
+            "ip": "192.168.4.3",
+            "priv_key": "",
+        },
+    }
+}
