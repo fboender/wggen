@@ -29,6 +29,6 @@ PrivateKey = {{ device_config["priv_key"] }}
         print(f"PublicKey = {server_config["pub_key"]}")
         print(f"Endpoint = {config["server"]["domain_name"]}:51820")
         print(f"AllowedIPs = {config["server"]["network"]}/24")
-        if config["keepalive"] is not False:
-            print(f"PersistentKeepAlive = {config["keepalive"]}")
+        if "keepalive" in device_config:
+            print(f"PersistentKeepAlive = {device_config["keepalive"]}")
 %}

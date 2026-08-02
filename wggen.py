@@ -42,6 +42,11 @@ if __name__ == "__main__":
 
     # Generate wireguard configs for each device
     for device_name, device_config in config["devices"].items():
+        # Set device keepalive if not specified for device and a global default
+        # is set
+        if "keepalive" not in device_config and config["keepalive"] is not False:
+            device_config["keepalive"] = config["keepalive"]
+
         with open(os.path.join("out", f"{device_name}.{config['interface']}.conf"), "w") as fh:
             fh.write(
                 template.tpl(
