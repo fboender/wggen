@@ -31,6 +31,7 @@ if __name__ == "__main__":
     # Create out/ dir
     if not os.path.exists("out"):
         os.mkdir("out")
+        os.chmod("out", 0o700)
 
     # Read template
     with open("wg.conf.tpl", "r") as fh:
