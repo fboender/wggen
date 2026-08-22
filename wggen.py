@@ -3,7 +3,7 @@
 import ast
 import os
 import subprocess
-import template
+import morestd.template
 
 
 def read_config(path):
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
         with open(os.path.join("out", f"{device_name}.{config['interface']}.conf"), "w") as fh:
             fh.write(
-                template.tpl(
+                morestd.template.render(
                     tpl_server,
                     {
                         "device_name": device_name,
