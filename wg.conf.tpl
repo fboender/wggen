@@ -10,7 +10,6 @@ Address = {{ device_config["ip"] }}/24
         print("ListenPort = 51820")
 %}
 PrivateKey = {{ device_config["priv_key"] }}
-
 {%
     if is_server:
         # Server
@@ -18,14 +17,13 @@ PrivateKey = {{ device_config["priv_key"] }}
             if peer_name == device_name:
                 continue
 
-            print(f"# {peer_name}")
+            print(f"\n# {peer_name}")
             print(f"[Peer]")
             print(f"PublicKey = {peer_info["pub_key"]}")
             print(f"AllowedIPs = {peer_info["ip"]}/32")
-            print()
     else:
         # Client
-        print(f"[Peer]")
+        print(f"\n[Peer]")
         print(f"PublicKey = {server_config["pub_key"]}")
         print(f"Endpoint = {config["server"]["domain_name"]}:51820")
         print(f"AllowedIPs = {config["server"]["network"]}/24")
