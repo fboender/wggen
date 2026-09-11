@@ -12,7 +12,18 @@ clean () {
     rm -rf out/
 }
 
-gen () {
+generate () {
     # Generate configs
     python3 ./wggen.py
+}
+
+deploy () {
+    # Deploy server configuration
+    NOW="$(date +"%Y-%m-%d_%H:%M:%S")"
+    DEST="/etc/wireguard/wg0.conf"
+    cp "$DEST" "$DEST"-$NOW.bak
+    cp out/elmo.em.wg0.conf "$DEST"
+    chown root:root "$DEST"
+    chmod 600 "$DEST"
+    systemctl restart wg-quick@wg0.service
 }
