@@ -8,3 +8,8 @@ Generate server and client configurations:
     $ ./wggen.py
 
 Configs will be written to `out/`.
+
+To generate QR codes:
+
+    $ apt install qrencode
+    $ qrencode -t ansiutf8 < out/somehost.conf
